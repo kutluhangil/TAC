@@ -78,7 +78,7 @@ export function Hero() {
 
   return (
     <section className="linen-texture relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-5 pb-24 pt-20 text-center">
-      <PingPongVideo />
+      <CurtainVideo />
 
       {/* Logo draws left-to-right like fabric being pulled across a rail. */}
       <motion.div
@@ -166,131 +166,53 @@ export function Hero() {
 }
 
 /**
- * Background footage of a waving TAÇ-red curtain. HTML5 video has no native
- * reverse playback, so we play forward natively, step `currentTime` backward
- * on each animation frame to "rewind", then play forward again — a seamless
- * ping-pong loop with no hard cut at the seam.
- *
- * Skipped for reduced-motion users. Playback is suspended while the hero is
- * off-screen or the tab is hidden so we never seek frames nobody can see.
+ * Billowing-curtain footage behind the hero. It plays through exactly once and
+ * then gently fades out, leaving a calm linen backdrop. A warm linen wash and a
+ * brighter centre keep the logo and copy legible while the fabric shows softly
+ * at the edges. Skipped entirely for reduced-motion users.
  */
-function PingPongVideo() {
+function CurtainVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const reduceMotion = useReducedMotion();
+  const [faded, setFaded] = useState(false);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion) {
+      setFaded(true);
+      return;
+    }
     const video = videoRef.current;
     if (!video) return;
 
-    let rafId: number | null = null;
-    let reversing = false;
-    let visible = true;
-    let lastFrame = 0;
+    // One pass, then dissolve away — no loop.
+    const handleEnded = () => setFaded(true);
+    video.addEventListener("ended", handleEnded);
+    video.play().catch(() => {});
 
-    const cancelRaf = () => {
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-        rafId = null;
-      }
-    };
-
-    const playForward = () => {
-      reversing = false;
-      video.play().catch(() => {});
-    };
-
-    // Nudge currentTime back by the real elapsed time each frame so the rewind
-    // runs at the same speed as forward playback, independent of frame rate.
-    const reverseStep = (now: number) => {
-      const delta = (now - lastFrame) / 1000;
-      lastFrame = now;
-      const next = video.currentTime - delta;
-      if (next <= 0) {
-        video.currentTime = 0;
-        rafId = null;
-        playForward();
-        return;
-      }
-      video.currentTime = next;
-      rafId = requestAnimationFrame(reverseStep);
-    };
-
-    const startReverse = () => {
-      if (reversing || !visible) return;
-      reversing = true;
-      video.pause();
-      lastFrame = performance.now();
-      rafId = requestAnimationFrame(reverseStep);
-    };
-
-    // Two triggers for the end of forward playback: `timeupdate` fires only a
-    // few times a second and can skip past a tight window, so the `ended` event
-    // backs it up. This is the fix for the video freezing on its last frame.
-    const handleTimeUpdate = () => {
-      if (!reversing && video.duration && video.currentTime >= video.duration - 0.15) {
-        startReverse();
-      }
-    };
-
-    const suspend = () => {
-      cancelRaf();
-      video.pause();
-    };
-
-    const resume = () => {
-      if (reversing) {
-        lastFrame = performance.now();
-        rafId = requestAnimationFrame(reverseStep);
-      } else {
-        playForward();
-      }
-    };
-
-    // Stop seeking frames while the hero is scrolled out of view.
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        visible = entry.isIntersecting;
-        if (visible) resume();
-        else suspend();
-      },
-      { threshold: 0.01 }
-    );
-    observer.observe(video);
-
-    const handleVisibility = () => {
-      if (document.hidden) suspend();
-      else if (visible) resume();
-    };
-
-    video.addEventListener("timeupdate", handleTimeUpdate);
-    video.addEventListener("ended", startReverse);
-    document.addEventListener("visibilitychange", handleVisibility);
-    playForward();
-
-    return () => {
-      observer.disconnect();
-      video.removeEventListener("timeupdate", handleTimeUpdate);
-      video.removeEventListener("ended", startReverse);
-      document.removeEventListener("visibilitychange", handleVisibility);
-      cancelRaf();
-    };
+    return () => video.removeEventListener("ended", handleEnded);
   }, [reduceMotion]);
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-      {/* Overlays sit behind the footage so its multiply blend fades against the
-          linen and keeps the copy readable. */}
-      <div className="absolute inset-0 bg-[#f7f5f0]/80" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#f7f5f0] via-transparent to-transparent" />
+    <div
+      className={`pointer-events-none absolute inset-0 z-0 overflow-hidden transition-opacity duration-[1800ms] ease-out ${
+        faded ? "opacity-0" : "opacity-100"
+      }`}
+      aria-hidden="true"
+    >
       <video
         ref={videoRef}
         src="/videos/curtain-waving.mp4"
-        className="h-full w-full object-cover opacity-60 mix-blend-multiply"
+        className="h-full w-full object-cover opacity-90"
         muted
         playsInline
         preload="auto"
       />
+      {/* Warm linen wash lifts the footage toward the site's cream palette. */}
+      <div className="absolute inset-0 bg-linen-warm/45" />
+      {/* Brighter centre keeps the logo and headline readable over the fabric. */}
+      <div className="absolute inset-0 bg-[radial-gradient(115%_115%_at_50%_42%,rgba(250,247,242,0.85)_0%,rgba(250,247,242,0.35)_45%,rgba(250,247,242,0)_75%)]" />
+      {/* Bottom fade so the location line reads against the linen. */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#f7f5f0] via-transparent to-transparent" />
     </div>
   );
 }

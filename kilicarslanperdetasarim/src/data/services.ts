@@ -29,5 +29,6 @@ export const services: Service[] = [
       "Boru korniş, ray ve gizli ray sistemleri",
       "Eski korniş sökümü ve değişimi",
     ],
+    image: "/images/services/kornis-montaj.png",
   },
 ];

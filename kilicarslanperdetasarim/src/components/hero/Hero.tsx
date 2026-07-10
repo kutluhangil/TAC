@@ -82,7 +82,7 @@ export function Hero() {
 
       {/* Logo draws left-to-right like fabric being pulled across a rail. */}
       <motion.div
-        className="relative w-36 sm:w-44 md:w-52"
+        className="relative z-10 w-36 sm:w-44 md:w-52"
         initial={{ clipPath: "inset(0% 100% 0% 0%)", opacity: 0 }}
         animate={
           shown
@@ -101,7 +101,7 @@ export function Hero() {
         />
       </motion.div>
 
-      <h1 className="mt-8 font-display font-semibold leading-[1.05] text-charcoal">
+      <h1 className="relative z-10 mt-8 font-display font-semibold leading-[1.05] text-charcoal">
         <span className="sr-only">Kılıçarslan Perde &amp; Tasarım</span>
         <StaggeredLine
           text="KILIÇARSLAN"
@@ -118,7 +118,7 @@ export function Hero() {
       </h1>
 
       <motion.p
-        className="mt-6 max-w-md font-body text-base text-charcoal-soft sm:text-lg"
+        className="relative z-10 mt-6 max-w-md font-body text-base text-charcoal-soft sm:text-lg"
         initial={{ opacity: 0, letterSpacing: "0.08em" }}
         animate={
           shown
@@ -131,7 +131,7 @@ export function Hero() {
       </motion.p>
 
       <motion.div
-        className="mt-10 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:w-auto sm:flex-row"
+        className="relative z-10 mt-10 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:w-auto sm:flex-row"
         initial={{ opacity: 0, y: 16 }}
         animate={shown ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
         transition={instant ? { duration: 0 } : { delay: 2.2, duration: 0.6, ease: EASE }}
@@ -154,7 +154,7 @@ export function Hero() {
       </motion.div>
 
       <motion.p
-        className="eyebrow mt-10"
+        className="relative z-10 eyebrow mt-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: shown ? 1 : 0 }}
         transition={instant ? { duration: 0 } : { delay: 2.5, duration: 0.6 }}
@@ -215,10 +215,10 @@ function PingPongVideo() {
   }, []);
 
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
       {/* Overlay to ensure text readability and blend with the linen texture */}
-      <div className="absolute inset-0 bg-[#f7f5f0]/80 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#f7f5f0] via-transparent to-transparent z-10" />
+      <div className="absolute inset-0 bg-[#f7f5f0]/80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#f7f5f0] via-transparent to-transparent" />
       <video
         ref={videoRef}
         src="/videos/curtain-waving.mp4"

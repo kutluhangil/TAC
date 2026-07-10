@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tac-red: #C8102E;
+  --tac-red-deep: #8E0C21;
+  --linen: #FAF7F2;
+  --linen-warm: #F1EBE1;
+  --charcoal: #1F1B18;
+  --charcoal-soft: #55504B;
+  --brass: #A98E5B;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--linen);
+  color: var(--charcoal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--tac-red);
+  color: var(--linen);
+}
+
+:focus-visible {
+  outline: 2px solid var(--tac-red);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@layer components {
+  /* Subtle woven-linen texture; sits under content without stealing contrast. */
+  .linen-texture {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(31, 27, 24, 0.016) 0px,
+        rgba(31, 27, 24, 0.016) 1px,
+        transparent 1px,
+        transparent 3px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(31, 27, 24, 0.016) 0px,
+        rgba(31, 27, 24, 0.016) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+  }
+
+  /* Uppercase utility labels — product codes, eyebrows. */
+  .eyebrow {
+    @apply font-body text-xs font-medium uppercase tracking-eyebrow text-brass;
+  }
+}
+
+/* Slow horizontal drift for the hero fabric-fold backdrop (transform only). */
+@keyframes fold-drift {
+  from {
+    transform: translate(-51%, -50%);
+  }
+  to {
+    transform: translate(-49%, -50%);
+  }
+}
+
+/* Accordion marker rotation for native <details>. */
+details[open] .guide-chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,14 @@
+export const business = {
+  name: "Kılıçarslan Perde & Tasarım",
+  owner: "Ufuk Kılıçarslan",
+  brand: "TAÇ",
+  phone: "0532 467 54 28",
+  phoneHref: "tel:+905324675428",
+  whatsappHref: "https://wa.me/905324675428",
+  email: "ufukkilicarslan76@gmail.com",
+  emailHref: "mailto:ufukkilicarslan76@gmail.com",
+  location: "Tuzla / İstanbul",
+  serviceArea: "Tuzla, Pendik, Kartal, Gebze ve çevresi",
+  tagline: "Pencereniz, evinizin en güzel köşesi olsun.",
+  url: "https://kilicarslanperdetasarim.vercel.app",
+} as const;

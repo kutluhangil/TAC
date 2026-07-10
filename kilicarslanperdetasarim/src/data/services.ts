@@ -17,7 +17,7 @@ export const services: Service[] = [
       "Boy ve en tadilatı yapılır",
       "Ütülenmiş ve pileleri düzeltilmiş halde yeniden takılır",
     ],
-    image: "/images/services/yikama-tadilat.webp",
+    image: "/images/services/yikama-tadilat.png",
   },
   {
     slug: "kornis-montaji",

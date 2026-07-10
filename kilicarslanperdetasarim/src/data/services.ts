@@ -17,7 +17,7 @@ export const services: Service[] = [
       "Boy ve en tadilatı yapılır",
       "Ütülenmiş ve pileleri düzeltilmiş halde yeniden takılır",
     ],
-    image: "/images/services/yikama-tadilat.png",
+    image: "/images/services/yikama-tadilat.webp",
   },
   {
     slug: "kornis-montaji",
@@ -29,6 +29,5 @@ export const services: Service[] = [
       "Boru korniş, ray ve gizli ray sistemleri",
       "Eski korniş sökümü ve değişimi",
     ],
-    image: "/images/services/kornis-montaj.png",
   },
 ];

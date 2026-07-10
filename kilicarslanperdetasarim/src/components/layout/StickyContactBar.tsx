@@ -14,8 +14,14 @@ export function StickyContactBar() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    let rafPending = false;
     const onScroll = () => {
-      setVisible(window.scrollY > window.innerHeight * 0.8);
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(() => {
+        setVisible(window.scrollY > window.innerHeight * 0.8);
+        rafPending = false;
+      });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });

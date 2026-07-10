@@ -38,7 +38,7 @@ export const products: Product[] = [
     lifespan: "Doğru kullanımda mekanizma yıllarca sorunsuz çalışır.",
     care: "Kumaş yüzeyi nemli bezle silinir; çoğu stor kumaşı su bazlı temizliğe uygundur.",
     colors: [],
-    images: ["/images/products/stor-perde-1.png"],
+    images: ["/images/products/stor-perde-1.webp"],
   },
   {
     slug: "plise-perde",
@@ -60,7 +60,7 @@ export const products: Product[] = [
     lifespan: "Kaliteli plise kumaşı formunu yıllarca korur.",
     care: "Hafif nemli bezle silme yeterlidir; katlar formunu kendiliğinden korur.",
     colors: [],
-    images: ["/images/products/plise-perde-1.png"],
+    images: ["/images/products/plise-perde-1.webp"],
   },
   {
     slug: "ahsap-jaluzi",
@@ -82,7 +82,7 @@ export const products: Product[] = [
     lifespan: "Doğru bakımla 10+ yıl formunu ve rengini korur.",
     care: "Kuru veya hafif nemli bezle lamel yönünde silinir; ıslak temizlik önerilmez.",
     colors: [],
-    images: ["/images/products/ahsap-jaluzi-1.png"],
+    images: ["/images/products/ahsap-jaluzi-1.webp"],
   },
   {
     slug: "metal-jaluzi",
@@ -104,7 +104,7 @@ export const products: Product[] = [
     lifespan: "Mekanizma düzenli kullanımda yıllarca sorunsuz çalışır.",
     care: "Nemli bezle silinir; lamel arası toz için tüy toplayıcı yeterlidir.",
     colors: [],
-    images: ["/images/products/metal-jaluzi-1.png"],
+    images: ["/images/products/metal-jaluzi-1.webp"],
   },
   {
     slug: "rustik",
@@ -126,7 +126,7 @@ export const products: Product[] = [
     lifespan: "Kaliteli kumaş ve korniş doğru bakımla 10+ yıl kullanılır.",
     care: "Kumaşına göre makinede yıkama veya kuru temizleme; korniş kuru bezle silinir.",
     colors: [],
-    images: ["/images/products/rustik-1.png"],
+    images: ["/images/products/rustik-1.webp"],
   },
   {
     slug: "zebra-perde",
@@ -148,7 +148,7 @@ export const products: Product[] = [
     lifespan: "Mekanizma ve kumaş düzenli kullanımda yıllarca formunu korur.",
     care: "Hafif nemli bezle silinir; toz için kuru mikrofiber yeterlidir.",
     colors: [],
-    images: ["/images/products/zebra-perde-1.png"],
+    images: ["/images/products/zebra-perde-1.webp"],
   },
   {
     slug: "dekoratif-ray",
@@ -170,7 +170,7 @@ export const products: Product[] = [
     lifespan: "Kaliteli ray sistemi perdeden uzun yaşar; yıllarca bakım istemez.",
     care: "Ray kanalı yılda bir kuru bezle silinir; yağlama gerektirmez.",
     colors: [],
-    images: ["/images/products/dekoratif-ray-1.png"],
+    images: ["/images/products/dekoratif-ray-1.webp"],
   },
   {
     slug: "tul-perde",
@@ -192,7 +192,7 @@ export const products: Product[] = [
     lifespan: "Kaliteli polyester tül doğru bakımla 10 yıl ve üzeri kullanılır.",
     care: "Düşük devirde makinede yıkanır; hafif nemliyken asılırsa ütü gerektirmez.",
     colors: [],
-    images: ["/images/products/tul-perde-1.png"],
+    images: ["/images/products/tul-perde-1.webp"],
   },
   {
     slug: "fon-perde",
@@ -214,7 +214,7 @@ export const products: Product[] = [
     lifespan: "Kaliteli fon kumaşı doğru bakımla 10 yıl ve üzeri kullanılır.",
     care: "Kumaşına göre düşük devirde yıkama veya kuru temizleme önerilir.",
     colors: [],
-    images: ["/images/products/fon-perde-1.png"],
+    images: ["/images/products/fon-perde-1.webp"],
   },
   {
     slug: "screen-ofis-perdesi",
@@ -236,7 +236,7 @@ export const products: Product[] = [
     lifespan: "Teknik kumaş formunu ve rengini yıllarca korur.",
     care: "Nemli bezle silinir; gözenekli yapısı toz tutmaz.",
     colors: [],
-    images: ["/images/products/screen-ofis-perdesi-1.png"],
+    images: ["/images/products/screen-ofis-perdesi-1.webp"],
   },
 ];
 

@@ -173,7 +173,7 @@ function PingPongVideo() {
     const video = videoRef.current;
     if (!video) return;
 
-    let rafId: number;
+    let rafId: number | null = null;
     let isReversing = false;
 
     const playForward = () => {
@@ -181,15 +181,17 @@ function PingPongVideo() {
       video.play().catch(() => {});
     };
 
+    // Start reverse when forward playback finishes.
     const handleTimeUpdate = () => {
       if (!isReversing && video.duration && video.currentTime >= video.duration - 0.05) {
         isReversing = true;
         video.pause();
+        startReverseLoop();
       }
     };
 
-    let lastTime = performance.now();
-    const loop = (now: number) => {
+    let lastTime = 0;
+    const reverseStep = (now: number) => {
       const delta = (now - lastTime) / 1000;
       lastTime = now;
 
@@ -197,20 +199,34 @@ function PingPongVideo() {
         const nextTime = video.currentTime - delta;
         if (nextTime <= 0) {
           video.currentTime = 0;
+          isReversing = false;
+          rafId = null;
           playForward();
+          return; // Stop RAF loop; forward playback is handled natively.
         } else {
           video.currentTime = nextTime;
         }
       }
-      rafId = requestAnimationFrame(loop);
+      rafId = requestAnimationFrame(reverseStep);
+    };
+
+    const startReverseLoop = () => {
+      lastTime = performance.now();
+      rafId = requestAnimationFrame(reverseStep);
+    };
+
+    // Begin playback once enough data is buffered.
+    const handleCanPlay = () => {
+      playForward();
     };
 
     video.addEventListener("timeupdate", handleTimeUpdate);
-    rafId = requestAnimationFrame(loop);
+    video.addEventListener("canplay", handleCanPlay, { once: true });
 
     return () => {
       video.removeEventListener("timeupdate", handleTimeUpdate);
-      cancelAnimationFrame(rafId);
+      video.removeEventListener("canplay", handleCanPlay);
+      if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -225,7 +241,7 @@ function PingPongVideo() {
         className="h-full w-full object-cover opacity-60 mix-blend-multiply"
         muted
         playsInline
-        autoPlay
+        preload="metadata"
       />
     </div>
   );

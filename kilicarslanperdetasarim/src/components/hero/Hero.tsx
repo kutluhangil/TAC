@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
@@ -78,7 +78,7 @@ export function Hero() {
 
   return (
     <section className="linen-texture relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-5 pb-24 pt-20 text-center">
-      <FabricFolds />
+      <PingPongVideo />
 
       {/* Logo draws left-to-right like fabric being pulled across a rail. */}
       <motion.div
@@ -165,35 +165,68 @@ export function Hero() {
   );
 }
 
-/** Slow-drifting fabric folds behind the hero; transform-only, GPU friendly. */
-function FabricFolds() {
+/** A background video of a waving curtain that plays forward, then backward in a loop. */
+function PingPongVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    let rafId: number;
+    let isReversing = false;
+
+    const playForward = () => {
+      isReversing = false;
+      video.play().catch(() => {});
+    };
+
+    const handleTimeUpdate = () => {
+      if (!isReversing && video.duration && video.currentTime >= video.duration - 0.05) {
+        isReversing = true;
+        video.pause();
+      }
+    };
+
+    let lastTime = performance.now();
+    const loop = (now: number) => {
+      const delta = (now - lastTime) / 1000;
+      lastTime = now;
+
+      if (isReversing && video.duration) {
+        const nextTime = video.currentTime - delta;
+        if (nextTime <= 0) {
+          video.currentTime = 0;
+          playForward();
+        } else {
+          video.currentTime = nextTime;
+        }
+      }
+      rafId = requestAnimationFrame(loop);
+    };
+
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    rafId = requestAnimationFrame(loop);
+
+    return () => {
+      video.removeEventListener("timeupdate", handleTimeUpdate);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <svg
-        className="absolute left-1/2 top-1/2 h-[140%] w-[160%] -translate-x-1/2 -translate-y-1/2 animate-[fold-drift_26s_ease-in-out_infinite_alternate]"
-        viewBox="0 0 1600 900"
-        fill="none"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          <linearGradient id="fold-a" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#C8102E" stopOpacity="0.05" />
-            <stop offset="1" stopColor="#C8102E" stopOpacity="0" />
-          </linearGradient>
-          <linearGradient id="fold-b" x1="1" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#A98E5B" stopOpacity="0.08" />
-            <stop offset="1" stopColor="#A98E5B" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M-100 120 C 300 40, 600 260, 900 160 S 1500 80, 1750 220 L 1750 -100 L -100 -100 Z"
-          fill="url(#fold-a)"
-        />
-        <path
-          d="M-100 780 C 350 880, 700 640, 1050 760 S 1550 860, 1750 700 L 1750 1000 L -100 1000 Z"
-          fill="url(#fold-b)"
-        />
-      </svg>
+      {/* Overlay to ensure text readability and blend with the linen texture */}
+      <div className="absolute inset-0 bg-[#f7f5f0]/80 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#f7f5f0] via-transparent to-transparent z-10" />
+      <video
+        ref={videoRef}
+        src="/videos/curtain-waving.mp4"
+        className="h-full w-full object-cover opacity-60 mix-blend-multiply"
+        muted
+        playsInline
+        autoPlay
+      />
     </div>
   );
 }

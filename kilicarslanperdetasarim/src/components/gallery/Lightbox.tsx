@@ -115,14 +115,59 @@ export function Lightbox({
               animate={{ opacity: 1 }}
               transition={{ duration: 0.08 }}
               className="relative h-full w-full"
+              onContextMenu={(e) => e.preventDefault()}
             >
               <Image
                 src={currentImage.src}
                 alt={currentImage.alt}
                 fill
                 sizes="90vw"
-                className="object-contain drop-shadow-2xl"
+                className="object-contain drop-shadow-2xl select-none"
+                style={{ pointerEvents: "none" }}
                 priority
+                draggable={false}
+              />
+
+              {/* Watermark overlay on lightbox image */}
+              <div className="pointer-events-none absolute inset-0 select-none">
+                {/* Top-right: logo image, small & semi-transparent */}
+                <div className="absolute top-4 right-4 z-10 opacity-70">
+                  <Image
+                    src="/images/brand/tac-logo.png"
+                    alt="Kılıçarslan Perde"
+                    width={64}
+                    height={36}
+                    className="object-contain select-none"
+                    draggable={false}
+                    style={{ pointerEvents: "none" }}
+                  />
+                </div>
+                {/* Diagonal domain watermark */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{ transform: "rotate(-30deg)" }}
+                >
+                  <span
+                    style={{
+                      color: "rgba(255,255,255,0.10)",
+                      fontSize: "16px",
+                      fontWeight: 700,
+                      letterSpacing: "0.4em",
+                      textTransform: "uppercase",
+                      userSelect: "none",
+                      whiteSpace: "nowrap",
+                      textShadow: "0 1px 6px rgba(0,0,0,0.3)",
+                    }}
+                  >
+                    kilicarslanperde.com
+                  </span>
+                </div>
+              </div>
+
+              {/* Blocking overlay — disables "Save Image As" */}
+              <div
+                className="absolute inset-0 z-10"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </motion.div>
 

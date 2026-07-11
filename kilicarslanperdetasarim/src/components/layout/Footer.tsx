@@ -30,20 +30,51 @@ export function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Model linkleri">
-            <p className="eyebrow mb-4">Modeller</p>
-            <ul className="grid grid-cols-2 gap-x-8 gap-y-2.5">
-              {products.map((product) => (
-                <li key={product.slug}>
+          <nav aria-label="Sayfa linkleri" className="grid grid-cols-2 gap-8">
+            <div>
+              <p className="eyebrow mb-4">Modeller</p>
+              <ul className="flex flex-col gap-2.5">
+                {products.map((product) => (
+                  <li key={product.slug}>
+                    <Link
+                      href={`/modeller/${product.slug}`}
+                      className="text-sm text-linen/70 transition-colors hover:text-linen"
+                    >
+                      {product.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="eyebrow mb-4">Keşfet</p>
+              <ul className="flex flex-col gap-2.5">
+                <li>
                   <Link
-                    href={`/modeller/${product.slug}`}
+                    href="/yapilan-isler"
                     className="text-sm text-linen/70 transition-colors hover:text-linen"
                   >
-                    {product.name}
+                    Yapılan İşler
                   </Link>
                 </li>
-              ))}
-            </ul>
+                <li>
+                  <Link
+                    href="/#rehber"
+                    className="text-sm text-linen/70 transition-colors hover:text-linen"
+                  >
+                    Rehber
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/#iletisim"
+                    className="text-sm text-linen/70 transition-colors hover:text-linen"
+                  >
+                    İletişim
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </nav>
         </div>
 

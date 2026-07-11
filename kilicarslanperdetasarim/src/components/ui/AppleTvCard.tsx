@@ -2,7 +2,13 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useMotionTemplate,
+} from "framer-motion";
 import { GalleryImage } from "@/data/gallery";
 
 interface AppleTvCardProps {
@@ -15,48 +21,30 @@ export function AppleTvCard({ image, onClick, priority = false }: AppleTvCardPro
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Motion values for the mouse position
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  // Spring animation for smooth return to center
-  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
+  const mouseXSpring = useSpring(x, { stiffness: 180, damping: 22 });
+  const mouseYSpring = useSpring(y, { stiffness: 180, damping: 22 });
 
-  // Transform the mouse position to rotation angles (max 15 degrees)
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+  // Tilt — max ±12°
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["12deg", "-12deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-12deg", "12deg"]);
 
-  // Calculate glare position based on mouse position
+  // Glare position
   const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["0%", "100%"]);
   const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["0%", "100%"]);
-  
   const glareBackground = useMotionTemplate`radial-gradient(
-    circle at ${glareX} ${glareY}, 
-    rgba(255,255,255,0.4) 0%, 
-    transparent 50%
+    circle at ${glareX} ${glareY},
+    rgba(255,255,255,0.35) 0%,
+    transparent 55%
   )`;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
-    
     const rect = ref.current.getBoundingClientRect();
-    
-    const width = rect.width;
-    const height = rect.height;
-    
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
+    x.set((e.clientX - rect.left) / rect.width - 0.5);
+    y.set((e.clientY - rect.top) / rect.height - 0.5);
   };
 
   const handleMouseLeave = () => {
@@ -66,54 +54,62 @@ export function AppleTvCard({ image, onClick, priority = false }: AppleTvCardPro
   };
 
   return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={onClick}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5 }}
-      whileHover={{ scale: 1.05 }}
-      className="relative aspect-square w-full cursor-pointer rounded-xl bg-linen-dark shadow-md"
-    >
-      <div 
-        className="absolute inset-0 z-10 overflow-hidden rounded-xl shadow-lg transition-all duration-300"
+    /* perspective wrapper so the 3D rotation has depth */
+    <div style={{ perspective: "800px" }} className="w-full">
+      <motion.div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={handleMouseLeave}
+        onClick={onClick}
         style={{
-          boxShadow: isHovered 
-            ? "0 20px 40px -10px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.1)"
-            : "0 10px 20px -10px rgba(0,0,0,0.2)",
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
         }}
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.45 }}
+        whileHover={{ scale: 1.06, z: 10 }}
+        className="relative aspect-square w-full cursor-pointer rounded-2xl"
       >
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-cover object-center"
-          priority={priority}
+        {/* Card inner */}
+        <div
+          className="absolute inset-0 overflow-hidden rounded-2xl"
           style={{
-            transform: isHovered ? "scale(1.05) translateZ(20px)" : "scale(1) translateZ(0)",
-            transition: "transform 0.4s ease-out",
+            boxShadow: isHovered
+              ? "0 24px 48px -12px rgba(0,0,0,0.35), 0 4px 12px rgba(0,0,0,0.15)"
+              : "0 8px 24px -8px rgba(0,0,0,0.22)",
+            transition: "box-shadow 0.35s ease",
           }}
-        />
-        
-        {/* Apple TV glare effect */}
-        <motion.div
-          className="pointer-events-none absolute inset-0 z-20 rounded-xl transition-opacity duration-300"
-          style={{
-            background: glareBackground,
-            opacity: isHovered ? 1 : 0
-          }}
-        />
-      </div>
-    </motion.div>
+        >
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-cover object-center transition-transform duration-500 ease-out"
+            style={{
+              transform: isHovered ? "scale(1.07)" : "scale(1)",
+            }}
+            priority={priority}
+          />
+
+          {/* Glare overlay */}
+          <motion.div
+            className="pointer-events-none absolute inset-0 rounded-2xl"
+            style={{
+              background: glareBackground,
+              opacity: isHovered ? 1 : 0,
+              transition: "opacity 0.3s ease",
+            }}
+          />
+
+          {/* Subtle dark gradient at bottom for depth */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 rounded-b-2xl bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        </div>
+      </motion.div>
+    </div>
   );
 }

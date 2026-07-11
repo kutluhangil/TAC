@@ -142,9 +142,9 @@ export function Lightbox({
                 <Image
                   src="/images/brand/filigran.png"
                   alt=""
-                  width={1080}
-                  height={540}
-                  className="object-contain select-none"
+                  width={640}
+                  height={320}
+                  className="object-contain max-w-[80%] max-h-[80%] select-none"
                   style={{ pointerEvents: "none" }}
                   draggable={false}
                 />

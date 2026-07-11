@@ -114,9 +114,9 @@ export function AppleTvCard({ image, onClick, priority = false }: AppleTvCardPro
             <Image
               src="/images/brand/filigran.png"
               alt=""
-              width={720}
-              height={360}
-              className="object-contain select-none"
+              width={360}
+              height={180}
+              className="object-contain max-w-[80%] max-h-[80%] select-none"
               style={{ pointerEvents: "none" }}
               draggable={false}
             />

@@ -137,15 +137,15 @@ export function Lightbox({
                 draggable={false}
               />
 
-              {/* Filigran watermark — centered, faded */}
+              {/* Filigran watermark — centered, no fade */}
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
                 <Image
                   src="/images/brand/filigran.png"
                   alt=""
-                  width={360}
-                  height={180}
+                  width={1080}
+                  height={540}
                   className="object-contain select-none"
-                  style={{ opacity: 0.30, pointerEvents: "none" }}
+                  style={{ pointerEvents: "none" }}
                   draggable={false}
                 />
               </div>

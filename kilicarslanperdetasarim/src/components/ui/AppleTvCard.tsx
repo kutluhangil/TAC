@@ -109,15 +109,15 @@ export function AppleTvCard({ image, onClick, priority = false }: AppleTvCardPro
             }}
           />
 
-          {/* Filigran watermark — centered, faded */}
+          {/* Filigran watermark — centered, no fade */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
             <Image
               src="/images/brand/filigran.png"
               alt=""
-              width={240}
-              height={120}
+              width={720}
+              height={360}
               className="object-contain select-none"
-              style={{ opacity: 0.35, pointerEvents: "none" }}
+              style={{ pointerEvents: "none" }}
               draggable={false}
             />
           </div>

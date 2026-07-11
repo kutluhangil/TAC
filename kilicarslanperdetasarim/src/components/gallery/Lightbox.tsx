@@ -128,40 +128,17 @@ export function Lightbox({
                 draggable={false}
               />
 
-              {/* Watermark overlay on lightbox image */}
-              <div className="pointer-events-none absolute inset-0 select-none">
-                {/* Top-right: logo image, small & semi-transparent */}
-                <div className="absolute top-4 right-4 z-10 opacity-70">
-                  <Image
-                    src="/images/brand/tac-logo.png"
-                    alt="Kılıçarslan Perde"
-                    width={64}
-                    height={36}
-                    className="object-contain select-none"
-                    draggable={false}
-                    style={{ pointerEvents: "none" }}
-                  />
-                </div>
-                {/* Diagonal domain watermark */}
-                <div
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ transform: "rotate(-30deg)" }}
-                >
-                  <span
-                    style={{
-                      color: "rgba(255,255,255,0.10)",
-                      fontSize: "16px",
-                      fontWeight: 700,
-                      letterSpacing: "0.4em",
-                      textTransform: "uppercase",
-                      userSelect: "none",
-                      whiteSpace: "nowrap",
-                      textShadow: "0 1px 6px rgba(0,0,0,0.3)",
-                    }}
-                  >
-                    kilicarslanperde.com
-                  </span>
-                </div>
+              {/* Filigran watermark — bottom center */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center select-none">
+                <Image
+                  src="/images/brand/filigran.png"
+                  alt=""
+                  width={180}
+                  height={90}
+                  className="object-contain opacity-80 select-none"
+                  draggable={false}
+                  style={{ pointerEvents: "none" }}
+                />
               </div>
 
               {/* Blocking overlay — disables "Save Image As" */}

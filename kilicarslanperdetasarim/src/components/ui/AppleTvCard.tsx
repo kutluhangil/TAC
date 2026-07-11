@@ -84,6 +84,7 @@ export function AppleTvCard({ image, onClick, priority = false }: AppleTvCardPro
             transition: "box-shadow 0.35s ease",
           }}
         >
+          {/* Photo */}
           <Image
             src={image.src}
             alt={image.alt}
@@ -92,7 +93,7 @@ export function AppleTvCard({ image, onClick, priority = false }: AppleTvCardPro
             className="object-cover object-center transition-transform duration-500 ease-out select-none"
             style={{
               transform: isHovered ? "scale(1.07)" : "scale(1)",
-              pointerEvents: "none", // blocks right-click on <img> directly
+              pointerEvents: "none",
             }}
             priority={priority}
             draggable={false}
@@ -108,45 +109,20 @@ export function AppleTvCard({ image, onClick, priority = false }: AppleTvCardPro
             }}
           />
 
-          {/* Watermark — always visible, subtle */}
-          <div
-            className="pointer-events-none absolute inset-0 select-none"
-          >
-            {/* Top-right: logo image, small & semi-transparent */}
-            <div className="absolute top-2 right-2 z-10 opacity-70">
-              <Image
-                src="/images/brand/tac-logo.png"
-                alt="Kılıçarslan Perde"
-                width={48}
-                height={28}
-                className="object-contain select-none"
-                draggable={false}
-                style={{ pointerEvents: "none" }}
-              />
-            </div>
-            {/* Diagonal ghost text across center */}
-            <div
-              className="absolute inset-0 flex items-center justify-center"
-              style={{ transform: "rotate(-30deg)" }}
-            >
-              <span
-                style={{
-                  color: "rgba(255,255,255,0.12)",
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  letterSpacing: "0.35em",
-                  textTransform: "uppercase",
-                  userSelect: "none",
-                  whiteSpace: "nowrap",
-                  textShadow: "0 1px 4px rgba(0,0,0,0.25)",
-                }}
-              >
-                kilicarslanperde.com
-              </span>
-            </div>
+          {/* Filigran watermark — bottom center */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center pb-2 select-none">
+            <Image
+              src="/images/brand/filigran.png"
+              alt=""
+              width={120}
+              height={60}
+              className="object-contain opacity-75 select-none"
+              draggable={false}
+              style={{ pointerEvents: "none" }}
+            />
           </div>
 
-          {/* Transparent interaction-blocking overlay — removes "Save Image As" from right-click */}
+          {/* Transparent blocking overlay — removes "Save Image As" from right-click */}
           <div
             className="absolute inset-0 z-20"
             onContextMenu={(e) => e.preventDefault()}

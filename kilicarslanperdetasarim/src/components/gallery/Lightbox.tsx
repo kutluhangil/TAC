@@ -43,6 +43,19 @@ export function Lightbox({
     };
   }, [handleKeyDown]);
 
+  // Preload prev/next images to eliminate delay
+  useEffect(() => {
+    if (!isOpen || images.length <= 1) return;
+    const nextIdx = (currentIndex + 1) % images.length;
+    const prevIdx = (currentIndex - 1 + images.length) % images.length;
+    
+    // Simple browser cache preloading
+    const img1 = new window.Image();
+    img1.src = images[nextIdx].src;
+    const img2 = new window.Image();
+    img2.src = images[prevIdx].src;
+  }, [currentIndex, images, isOpen]);
+
   // Lock body scroll when open
   useEffect(() => {
     if (isOpen) {
@@ -110,10 +123,6 @@ export function Lightbox({
             onClick={(e) => e.stopPropagation()}
           >
             <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.08 }}
               className="relative h-full w-full"
               onContextMenu={(e) => e.preventDefault()}
             >
@@ -128,16 +137,16 @@ export function Lightbox({
                 draggable={false}
               />
 
-              {/* Filigran watermark — bottom center */}
-              <div className="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center select-none">
+              {/* Filigran watermark — centered, faded */}
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
                 <Image
                   src="/images/brand/filigran.png"
                   alt=""
-                  width={180}
-                  height={90}
-                  className="object-contain opacity-80 select-none"
+                  width={360}
+                  height={180}
+                  className="object-contain select-none"
+                  style={{ opacity: 0.30, pointerEvents: "none" }}
                   draggable={false}
-                  style={{ pointerEvents: "none" }}
                 />
               </div>
 

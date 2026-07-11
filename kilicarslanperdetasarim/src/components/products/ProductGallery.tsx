@@ -38,6 +38,19 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
     return () => window.removeEventListener("keydown", onKey);
   }, [lightboxOpen, images.length]);
 
+  // Preload prev/next images to eliminate delay
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const nextIdx = (mainIndex + 1) % images.length;
+    const prevIdx = (mainIndex - 1 + images.length) % images.length;
+    
+    // Simple browser cache preloading
+    const img1 = new window.Image();
+    img1.src = images[nextIdx];
+    const img2 = new window.Image();
+    img2.src = images[prevIdx];
+  }, [mainIndex, images]);
+
   if (images.length === 0) {
     return (
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
@@ -48,10 +61,10 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
 
   return (
     <>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         {/* Main Image */}
         <div
-          className="relative aspect-[16/10] w-full cursor-zoom-in overflow-hidden rounded-2xl bg-linen-warm"
+          className="relative aspect-[16/10] w-full flex-1 cursor-zoom-in overflow-hidden rounded-2xl bg-linen-warm"
           onClick={() => setLightboxOpen(true)}
         >
           <Image
@@ -70,12 +83,12 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
 
         {/* Thumbnails */}
         {images.length > 1 && (
-          <div className="flex gap-3 overflow-x-auto pb-1 [&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-brass/40">
+          <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-y-auto lg:h-auto lg:max-h-[600px] lg:w-40 pb-2 lg:pb-0 lg:pr-2 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-brass/40">
             {images.map((src, idx) => (
               <button
                 key={src}
                 onClick={() => setMainIndex(idx)}
-                className={`relative h-20 w-32 shrink-0 overflow-hidden rounded-xl border-2 transition-all duration-200 ${
+                className={`relative h-24 lg:h-28 w-36 lg:w-full shrink-0 overflow-hidden rounded-xl border-2 transition-all duration-200 ${
                   idx === mainIndex
                     ? "border-tac-red opacity-100 shadow-md"
                     : "border-transparent opacity-55 hover:opacity-90"
@@ -86,7 +99,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
                   src={src}
                   alt={`${name} küçük görsel ${idx + 1}`}
                   fill
-                  sizes="128px"
+                  sizes="144px"
                   className="object-cover"
                 />
               </button>

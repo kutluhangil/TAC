@@ -8,6 +8,7 @@ import { MobileNav } from "./MobileNav";
 
 export const navLinks = [
   { href: "/modeller", label: "Modeller" },
+  { href: "/yapilan-isler", label: "Yapılan İşler" },
   { href: "/#rehber", label: "Rehber" },
   { href: "/#yorumlar", label: "Yorumlar" },
   { href: "/#iletisim", label: "İletişim" },

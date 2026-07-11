@@ -38,7 +38,13 @@ export const products: Product[] = [
     lifespan: "Doğru kullanımda mekanizma yıllarca sorunsuz çalışır.",
     care: "Kumaş yüzeyi nemli bezle silinir; çoğu stor kumaşı su bazlı temizliğe uygundur.",
     colors: [],
-    images: ["/images/products/stor-perde-1.webp"],
+    images: [
+      "/images/products/stor-perde-1.png",
+      "/images/products/stor-perde-2.png",
+      "/images/products/stor-perde-3.png",
+      "/images/products/stor-perde-4.png",
+      "/images/products/stor-perde-5.png",
+    ],
   },
   {
     slug: "plise-perde",
@@ -60,7 +66,13 @@ export const products: Product[] = [
     lifespan: "Kaliteli plise kumaşı formunu yıllarca korur.",
     care: "Hafif nemli bezle silme yeterlidir; katlar formunu kendiliğinden korur.",
     colors: [],
-    images: ["/images/products/plise-perde-1.webp"],
+    images: [
+      "/images/products/plise-perde-1.png",
+      "/images/products/plise-perde-2.png",
+      "/images/products/plise-perde-3.png",
+      "/images/products/plise-perde-4.png",
+      "/images/products/plise-perde-5.png",
+    ],
   },
   {
     slug: "ahsap-jaluzi",
@@ -82,7 +94,13 @@ export const products: Product[] = [
     lifespan: "Doğru bakımla 10+ yıl formunu ve rengini korur.",
     care: "Kuru veya hafif nemli bezle lamel yönünde silinir; ıslak temizlik önerilmez.",
     colors: [],
-    images: ["/images/products/ahsap-jaluzi-1.webp"],
+    images: [
+      "/images/products/ahsap-jaluzi-1.png",
+      "/images/products/ahsap-jaluzi-2.png",
+      "/images/products/ahsap-jaluzi-3.png",
+      "/images/products/ahsap-jaluzi-4.png",
+      "/images/products/ahsap-jaluzi-5.png",
+    ],
   },
   {
     slug: "metal-jaluzi",
@@ -104,7 +122,10 @@ export const products: Product[] = [
     lifespan: "Mekanizma düzenli kullanımda yıllarca sorunsuz çalışır.",
     care: "Nemli bezle silinir; lamel arası toz için tüy toplayıcı yeterlidir.",
     colors: [],
-    images: ["/images/products/metal-jaluzi-1.webp"],
+    images: [
+      "/images/products/metal-jaluzi-1.png",
+      "/images/products/metal-jaluzi-2.png",
+    ],
   },
   {
     slug: "rustik",

@@ -109,25 +109,22 @@ export function Lightbox({
             className="relative h-[80vh] w-[90vw] max-w-5xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.04 }}
-                transition={{ duration: 0.18 }}
-                className="relative h-full w-full"
-              >
-                <Image
-                  src={currentImage.src}
-                  alt={currentImage.alt}
-                  fill
-                  sizes="90vw"
-                  className="object-contain drop-shadow-2xl"
-                  priority
-                />
-              </motion.div>
-            </AnimatePresence>
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.08 }}
+              className="relative h-full w-full"
+            >
+              <Image
+                src={currentImage.src}
+                alt={currentImage.alt}
+                fill
+                sizes="90vw"
+                className="object-contain drop-shadow-2xl"
+                priority
+              />
+            </motion.div>
 
             {/* Counter */}
             <p className="absolute -bottom-9 left-0 right-0 text-center text-sm font-medium text-white/60">

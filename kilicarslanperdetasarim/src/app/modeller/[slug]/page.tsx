@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Check, MessageCircle, Phone } from "lucide-react";
@@ -7,7 +6,7 @@ import { getProduct, products } from "@/data/products";
 import { business } from "@/data/business";
 import { ColorSwatches } from "@/components/products/ColorSwatches";
 import { ProductGrid } from "@/components/products/ProductGrid";
-import { ProductImagePlaceholder } from "@/components/products/ProductImagePlaceholder";
+import { ProductGallery } from "@/components/products/ProductGallery";
 import { FadeUp } from "@/components/motion/FadeUp";
 
 interface PageProps {
@@ -58,30 +57,10 @@ export default function ProductPage({ params }: PageProps) {
         </FadeUp>
       </div>
 
-      {/* Gallery: full-bleed swipe on mobile, contained on desktop. */}
+      {/* Gallery */}
       <FadeUp className="mt-8">
-        <div className="mx-auto flex max-w-4xl snap-x snap-mandatory gap-3 overflow-x-auto px-5">
-          {product.images.length > 0 ? (
-            product.images.map((src, i) => (
-              <div
-                key={src}
-                className="relative aspect-[16/10] w-[88vw] max-w-3xl shrink-0 snap-center overflow-hidden rounded-2xl sm:w-full"
-              >
-                <Image
-                  src={src}
-                  alt={`${product.name} — görsel ${i + 1}`}
-                  fill
-                  priority={i === 0}
-                  sizes="(max-width: 640px) 88vw, 768px"
-                  className="object-cover"
-                />
-              </div>
-            ))
-          ) : (
-            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
-              <ProductImagePlaceholder name={product.name} />
-            </div>
-          )}
+        <div className="mx-auto max-w-4xl px-5">
+          <ProductGallery images={product.images} name={product.name} />
         </div>
       </FadeUp>
 

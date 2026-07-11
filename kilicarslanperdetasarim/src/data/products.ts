@@ -147,7 +147,17 @@ export const products: Product[] = [
     lifespan: "Kaliteli kumaş ve korniş doğru bakımla 10+ yıl kullanılır.",
     care: "Kumaşına göre makinede yıkama veya kuru temizleme; korniş kuru bezle silinir.",
     colors: [],
-    images: ["/images/products/rustik-1.webp"],
+    images: [
+      "/images/products/rustik-1.jpeg",
+      "/images/products/rustik-2.jpeg",
+      "/images/products/rustik-3.jpeg",
+      "/images/products/rustik-4.jpeg",
+      "/images/products/rustik-5.jpeg",
+      "/images/products/rustik-6.jpeg",
+      "/images/products/rustik-7.jpeg",
+      "/images/products/rustik-8.jpeg",
+      "/images/products/rustik-9.jpeg",
+    ],
   },
   {
     slug: "zebra-perde",

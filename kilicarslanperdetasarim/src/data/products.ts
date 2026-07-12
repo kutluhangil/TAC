@@ -125,6 +125,9 @@ export const products: Product[] = [
     images: [
       "/images/products/metal-jaluzi-1.png",
       "/images/products/metal-jaluzi-2.png",
+      "/images/products/metal_jaluzi_3.png",
+      "/images/products/metal_jaluzi_4.png",
+      "/images/products/metal_jaluzi_5.png",
     ],
   },
   {
@@ -179,7 +182,13 @@ export const products: Product[] = [
     lifespan: "Mekanizma ve kumaş düzenli kullanımda yıllarca formunu korur.",
     care: "Hafif nemli bezle silinir; toz için kuru mikrofiber yeterlidir.",
     colors: [],
-    images: ["/images/products/zebra-perde-1.webp"],
+    images: [
+      "/images/products/zebra-perde-1.webp",
+      "/images/products/zebra_perde_2.png",
+      "/images/products/zebra_perde_3.png",
+      "/images/products/zebra_perde_4.png",
+      "/images/products/zebra_perde_5.png",
+    ],
   },
   {
     slug: "dekoratif-ray",
@@ -201,7 +210,13 @@ export const products: Product[] = [
     lifespan: "Kaliteli ray sistemi perdeden uzun yaşar; yıllarca bakım istemez.",
     care: "Ray kanalı yılda bir kuru bezle silinir; yağlama gerektirmez.",
     colors: [],
-    images: ["/images/products/dekoratif-ray-1.webp"],
+    images: [
+      "/images/products/dekoratif-ray-1.webp",
+      "/images/products/dekoratif_ray_2.png",
+      "/images/products/dekoratif_ray_3.png",
+      "/images/products/dekoratif_ray_4.png",
+      "/images/products/dekoratif_ray_5.png",
+    ],
   },
   {
     slug: "tul-perde",
@@ -223,7 +238,13 @@ export const products: Product[] = [
     lifespan: "Kaliteli polyester tül doğru bakımla 10 yıl ve üzeri kullanılır.",
     care: "Düşük devirde makinede yıkanır; hafif nemliyken asılırsa ütü gerektirmez.",
     colors: [],
-    images: ["/images/products/tul-perde-1.webp"],
+    images: [
+      "/images/products/tul-perde-1.webp",
+      "/images/products/tul_perde_2.png",
+      "/images/products/tul_perde_3.png",
+      "/images/products/tul_perde_4.png",
+      "/images/products/tul_perde_5.png",
+    ],
   },
   {
     slug: "fon-perde",
@@ -245,7 +266,11 @@ export const products: Product[] = [
     lifespan: "Kaliteli fon kumaşı doğru bakımla 10 yıl ve üzeri kullanılır.",
     care: "Kumaşına göre düşük devirde yıkama veya kuru temizleme önerilir.",
     colors: [],
-    images: ["/images/products/fon-perde-1.webp"],
+    images: [
+      "/images/products/fon-perde-1.webp",
+      "/images/products/fon_perde_2.png",
+      "/images/products/fon_perde_3.png",
+    ],
   },
   {
     slug: "screen-ofis-perdesi",

@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, CheckCircle } from "lucide-react";
 import { business } from "@/data/business";
 import { EASE } from "@/lib/motion-variants";
 import { HeroSearch } from "./HeroSearch";
@@ -78,12 +78,24 @@ export function Hero() {
   const shown = phase !== "initial";
 
   return (
-    <section className="linen-texture relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-5 pb-24 pt-20 text-center">
+    <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-5 pb-24 pt-20 text-center">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/gallery/gallery-45.jpeg"
+          alt="Lüks Salon Perde Modeli"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-charcoal/70" />
+      </div>
+
       <CurtainVideo />
 
       {/* Logo draws left-to-right like fabric being pulled across a rail. */}
       <motion.div
-        className="relative z-10 w-36 sm:w-44 md:w-52"
+        className="relative z-10 w-28 sm:w-32 md:w-40"
         initial={{ clipPath: "inset(0% 100% 0% 0%)", opacity: 0 }}
         animate={
           shown
@@ -102,7 +114,7 @@ export function Hero() {
         />
       </motion.div>
 
-      <h1 className="relative z-10 mt-8 font-display font-semibold leading-[1.05] text-charcoal">
+      <h1 className="relative z-10 mt-8 font-display font-semibold leading-[1.05] text-white">
         <span className="sr-only">Kılıçarslan Perde &amp; Tasarım</span>
         <StaggeredLine
           text="KILIÇARSLAN"
@@ -119,7 +131,7 @@ export function Hero() {
       </h1>
 
       <motion.p
-        className="relative z-10 mt-6 max-w-md font-body text-base text-charcoal-soft sm:text-lg"
+        className="relative z-10 mt-6 max-w-md font-body text-base text-white/80 sm:text-lg"
         initial={{ opacity: 0, letterSpacing: "0.08em" }}
         animate={
           shown
@@ -147,7 +159,7 @@ export function Hero() {
           href={business.whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 rounded-full border border-charcoal/25 px-8 py-3.5 font-body font-semibold text-charcoal transition-colors hover:border-tac-red hover:text-tac-red active:scale-[0.98]"
+          className="flex items-center justify-center gap-2 rounded-full border border-white/30 px-8 py-3.5 font-body font-semibold text-white transition-colors hover:border-white hover:bg-white/10 active:scale-[0.98]"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />
           WhatsApp&apos;tan Yaz
@@ -155,7 +167,7 @@ export function Hero() {
       </motion.div>
 
       <motion.p
-        className="relative z-10 eyebrow mt-10"
+        className="relative z-10 eyebrow mt-10 text-white/70"
         initial={{ opacity: 0 }}
         animate={{ opacity: shown ? 1 : 0 }}
         transition={instant ? { duration: 0 } : { delay: 2.5, duration: 0.6 }}
@@ -170,6 +182,19 @@ export function Hero() {
         transition={instant ? { duration: 0 } : { delay: 2.8, duration: 0.6 }}
       >
         <HeroSearch />
+
+        {/* Trust Badges */}
+        <div className="mt-8 flex flex-wrap justify-center gap-4 sm:gap-6 text-[13px] sm:text-sm font-medium text-white/90">
+          <div className="flex items-center gap-1.5">
+            <CheckCircle className="h-4 w-4 text-tac-red" /> Ücretsiz Keşif & Montaj
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle className="h-4 w-4 text-tac-red" /> 2 Yıl TAÇ Garantisi
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle className="h-4 w-4 text-tac-red" /> %100 Müşteri Memnuniyeti
+          </div>
+        </div>
       </motion.div>
     </section>
   );
@@ -217,12 +242,12 @@ function CurtainVideo() {
         playsInline
         preload="auto"
       />
-      {/* Warm linen wash lifts the footage toward the site's cream palette. */}
-      <div className="absolute inset-0 bg-linen-warm/45" />
+      {/* Dark wash blends the footage toward the dark theme palette. */}
+      <div className="absolute inset-0 bg-charcoal/60" />
       {/* Brighter centre keeps the logo and headline readable over the fabric. */}
-      <div className="absolute inset-0 bg-[radial-gradient(115%_115%_at_50%_42%,rgba(250,247,242,0.85)_0%,rgba(250,247,242,0.35)_45%,rgba(250,247,242,0)_75%)]" />
-      {/* Bottom fade so the location line reads against the linen. */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#f7f5f0] via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(115%_115%_at_50%_42%,rgba(20,20,20,0.85)_0%,rgba(20,20,20,0.45)_45%,rgba(20,20,20,0)_75%)]" />
+      {/* Bottom fade so the location line reads against the dark background. */}
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent" />
     </div>
   );
 }

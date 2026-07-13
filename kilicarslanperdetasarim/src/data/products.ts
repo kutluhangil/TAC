@@ -270,6 +270,8 @@ export const products: Product[] = [
       "/images/products/fon-perde-1.webp",
       "/images/products/fon_perde_2.png",
       "/images/products/fon_perde_3.png",
+      "/images/products/fon_perde_4.png",
+      "/images/products/fon_perde_5.png",
     ],
   },
   {
@@ -292,7 +294,13 @@ export const products: Product[] = [
     lifespan: "Teknik kumaş formunu ve rengini yıllarca korur.",
     care: "Nemli bezle silinir; gözenekli yapısı toz tutmaz.",
     colors: [],
-    images: ["/images/products/screen-ofis-perdesi-1.webp"],
+    images: [
+      "/images/products/screen-ofis-perdesi-1.webp",
+      "/images/products/screen_perde_2.png",
+      "/images/products/screen_perde_3.png",
+      "/images/products/screen_perde_4.png",
+      "/images/products/screen_perde_5.png",
+    ],
   },
 ];
 

@@ -11,6 +11,8 @@ import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Faq } from "@/components/sections/Faq";
+import { HowWeWork } from "@/components/sections/HowWeWork";
+import { InstagramFeed } from "@/components/sections/InstagramFeed";
 
 export default function Home() {
   return (
@@ -42,10 +44,12 @@ export default function Home() {
       </section>
 
       <WhyTac />
+      <HowWeWork />
       <CurtainGuide />
       <Services />
       <Testimonials />
       <Faq />
+      <InstagramFeed />
       <ContactSection />
     </>
   );

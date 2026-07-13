@@ -1,6 +1,7 @@
 import { GalleryGrid } from "@/components/gallery/GalleryGrid";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { BeforeAfterSlider } from "@/components/ui/BeforeAfterSlider";
 
 export const metadata = {
   title: "Yapılan İşler | Kılıçarslan Perde",
@@ -24,6 +25,18 @@ export default function YapilanIslerPage() {
             </p>
           </div>
           
+          <div className="mb-16 mx-auto max-w-4xl">
+            <h2 className="mb-6 font-display text-2xl font-semibold text-center text-charcoal">
+              Değişimi Kendi Gözlerinizle Görün
+            </h2>
+            <BeforeAfterSlider
+              beforeImage="/images/gallery/gallery-43.jpeg"
+              afterImage="/images/gallery/gallery-43.jpeg"
+              beforeLabel="Eski Hali (Örnek)"
+              afterLabel="TAÇ Perde ile Sonrası"
+            />
+          </div>
+
           <GalleryGrid />
         </div>
       </div>

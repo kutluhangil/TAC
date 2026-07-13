@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { business } from "@/data/business";
 import { EASE } from "@/lib/motion-variants";
+import { HeroSearch } from "./HeroSearch";
 
 const PLAYED_KEY = "kp-hero-played";
 
@@ -161,6 +162,15 @@ export function Hero() {
       >
         {business.location} — yerinde ölçü &amp; montaj
       </motion.p>
+
+      <motion.div
+        className="relative z-30 w-full"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: shown ? 1 : 0, y: shown ? 0 : 10 }}
+        transition={instant ? { duration: 0 } : { delay: 2.8, duration: 0.6 }}
+      >
+        <HeroSearch />
+      </motion.div>
     </section>
   );
 }

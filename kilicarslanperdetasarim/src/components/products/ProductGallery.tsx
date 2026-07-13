@@ -161,8 +161,18 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="relative h-full max-h-[85vh] w-full max-w-5xl"
+              className="relative h-full max-h-[85vh] w-full max-w-5xl touch-pan-y"
               onClick={(e) => e.stopPropagation()}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(e, { offset }) => {
+                if (offset.x < -40) {
+                  nextImage();
+                } else if (offset.x > 40) {
+                  prevImage();
+                }
+              }}
             >
               <Image
                 src={images[mainIndex]}

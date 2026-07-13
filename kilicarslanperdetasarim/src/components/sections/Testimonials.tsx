@@ -72,18 +72,18 @@ export function Testimonials() {
         {/* Infinite Marquee Scroll */}
         <div className="mt-12 flex flex-col gap-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] hover:[&_div]:[animation-play-state:paused]">
           {/* Row 1 */}
-          <div className="flex w-max animate-marquee gap-6" style={{ animationDuration: "120s" }}>
+          <div className="flex w-max animate-marquee gap-4 sm:gap-6" style={{ animationDuration: "120s" }}>
             {[...testimonials.slice(0, Math.ceil(testimonials.length / 2)), ...testimonials.slice(0, Math.ceil(testimonials.length / 2))].map((testimonial, i) => (
-              <div key={`${testimonial.name}-${i}`} className="w-[320px] shrink-0">
+              <div key={`${testimonial.name}-${i}`} className="w-[280px] shrink-0 sm:w-[320px]">
                 <TestimonialCard testimonial={testimonial} />
               </div>
             ))}
           </div>
 
           {/* Row 2 */}
-          <div className="flex w-max animate-marquee gap-6" style={{ animationDirection: "normal", animationDuration: "150s" }}>
+          <div className="flex w-max animate-marquee gap-4 sm:gap-6" style={{ animationDirection: "normal", animationDuration: "150s" }}>
             {[...testimonials.slice(Math.ceil(testimonials.length / 2)), ...testimonials.slice(Math.ceil(testimonials.length / 2))].map((testimonial, i) => (
-              <div key={`${testimonial.name}-${i}`} className="w-[320px] shrink-0">
+              <div key={`${testimonial.name}-${i}`} className="w-[280px] shrink-0 sm:w-[320px]">
                 <TestimonialCard testimonial={testimonial} />
               </div>
             ))}

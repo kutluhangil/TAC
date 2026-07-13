@@ -72,6 +72,7 @@ export function AppleTvCard({ image, onClick, priority = false }: AppleTvCardPro
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.45 }}
         whileHover={{ scale: 1.06, z: 10 }}
+        whileTap={{ scale: 0.96 }}
         className="relative aspect-square w-full cursor-pointer rounded-2xl"
       >
         {/* Card inner */}

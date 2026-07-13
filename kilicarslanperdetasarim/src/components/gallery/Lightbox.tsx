@@ -123,8 +123,18 @@ export function Lightbox({
             onClick={(e) => e.stopPropagation()}
           >
             <motion.div
-              className="relative h-full w-full"
+              className="relative h-full w-full touch-pan-y"
               onContextMenu={(e) => e.preventDefault()}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(e, { offset }) => {
+                if (offset.x < -40) {
+                  onNext();
+                } else if (offset.x > 40) {
+                  onPrev();
+                }
+              }}
             >
               <Image
                 src={currentImage.src}

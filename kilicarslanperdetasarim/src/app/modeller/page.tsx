@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { products } from "@/data/products";
-import { ProductGrid } from "@/components/products/ProductGrid";
+import { ModellerView } from "@/components/products/ModellerView";
 import { FadeUp } from "@/components/motion/FadeUp";
 
 export const metadata: Metadata = {
@@ -23,9 +23,7 @@ export default function ModellerPage() {
           bizden.
         </p>
       </FadeUp>
-      <div className="mt-10">
-        <ProductGrid products={products} layout="grid" />
-      </div>
+      <ModellerView products={products} />
     </div>
   );
 }

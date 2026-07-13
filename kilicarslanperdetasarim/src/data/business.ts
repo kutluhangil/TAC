@@ -11,6 +11,6 @@ export const business = {
   serviceArea: "Tuzla, Pendik, Kartal, Gebze ve çevresi",
   tagline: "Pencereniz, evinizin en güzel köşesi olsun.",
   url: "https://kilicarslanperdetasarim.vercel.app",
-  instagram: "@kilicarslanperdetasarim",
-  instagramHref: "https://instagram.com/kilicarslanperdetasarim",
+  instagram: "@kilicarslanperde",
+  instagramHref: "https://www.instagram.com/kilicarslanperde/",
 } as const;

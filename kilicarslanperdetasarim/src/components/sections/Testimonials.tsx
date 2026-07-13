@@ -69,16 +69,25 @@ export function Testimonials() {
           </h2>
         </CurtainReveal>
 
-        {/* Mobile: swipeable snap carousel. Desktop: three-column masonry. */}
-        <div className="-mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:mx-0 md:block md:columns-3 md:gap-5 md:space-y-5 md:overflow-visible md:px-0 md:pb-0">
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.name}
-              className="w-[85vw] max-w-[340px] shrink-0 snap-center md:mb-5 md:w-auto md:max-w-none"
-            >
-              <TestimonialCard testimonial={testimonial} />
-            </div>
-          ))}
+        {/* Infinite Marquee Scroll */}
+        <div className="mt-12 flex flex-col gap-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] hover:[&_div]:[animation-play-state:paused]">
+          {/* Row 1 */}
+          <div className="flex w-max animate-marquee gap-6" style={{ animationDuration: "120s" }}>
+            {[...testimonials.slice(0, Math.ceil(testimonials.length / 2)), ...testimonials.slice(0, Math.ceil(testimonials.length / 2))].map((testimonial, i) => (
+              <div key={`${testimonial.name}-${i}`} className="w-[320px] shrink-0">
+                <TestimonialCard testimonial={testimonial} />
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2 */}
+          <div className="flex w-max animate-marquee gap-6" style={{ animationDirection: "normal", animationDuration: "150s" }}>
+            {[...testimonials.slice(Math.ceil(testimonials.length / 2)), ...testimonials.slice(Math.ceil(testimonials.length / 2))].map((testimonial, i) => (
+              <div key={`${testimonial.name}-${i}`} className="w-[320px] shrink-0">
+                <TestimonialCard testimonial={testimonial} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

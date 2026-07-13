@@ -10,13 +10,15 @@ import { ArrowRight } from "lucide-react";
 export function HeroCardStack() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % products.length);
+  };
+
   useEffect(() => {
-    // 4 Saniyede bir kart değişimi
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % products.length);
-    }, 4000);
+    // 4 Saniyede bir veya tıklama sonrası kart değişimi
+    const timer = setInterval(handleNext, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [currentIndex]);
 
   // Sadece ekranda göreceğimiz ilk 3 kartı alıyoruz
   const visibleCards = [
@@ -32,6 +34,7 @@ export function HeroCardStack() {
           return (
             <motion.div
               key={product.slug}
+              onClick={handleNext}
               layout
               initial={{
                 opacity: 0,
@@ -54,7 +57,7 @@ export function HeroCardStack() {
                 rotate: -10,
               }}
               transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
-              className="absolute inset-0 bg-white rounded-3xl shadow-2xl overflow-hidden border border-charcoal/10 flex flex-col group"
+              className="absolute inset-0 bg-white rounded-3xl shadow-2xl overflow-hidden border border-charcoal/10 flex flex-col group cursor-pointer"
               style={{ transformOrigin: "top center" }}
             >
               {/* Resim Alanı */}

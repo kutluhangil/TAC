@@ -88,7 +88,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center flex-1 my-auto">
         
         {/* Left Column: Text & CTA */}
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left pt-10 lg:pt-0">
+        <div className="flex flex-col items-center text-center pt-10 lg:pt-0 mx-auto max-w-xl">
           {/* Logo draws left-to-right like fabric being pulled across a rail. */}
           <motion.div
             className="relative z-10 w-28 sm:w-32 md:w-40"
@@ -180,7 +180,7 @@ export function Hero() {
             <HeroSearch />
 
             {/* Trust Badges */}
-            <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 text-[13px] sm:text-sm font-medium text-charcoal/80">
+            <div className="mt-6 flex flex-wrap justify-center gap-4 sm:gap-6 text-[13px] sm:text-sm font-medium text-charcoal/80">
               <div className="flex items-center gap-1.5">
                 <CheckCircle className="h-4 w-4 text-tac-red" /> Ücretsiz Keşif ve Ölçü Alımı
               </div>

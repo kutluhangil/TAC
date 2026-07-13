@@ -6,9 +6,9 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    question: "Ölçü ve montaj için ek ücret alıyor musunuz?",
+    question: "Ölçü için ek ücret alıyor musunuz?",
     answer:
-      "Hayır, Tuzla ve çevre ilçelerindeki hizmet bölgemizde yerinde ölçü alımı, kumaş seçimi ve profesyonel montaj hizmetimiz tamamen ücretsizdir. Fiyatlarımıza her şey dâhildir.",
+      "Hayır, Tuzla ve çevre ilçelerindeki hizmet bölgemizde yerinde ölçü alımı ve kumaş seçimi hizmetimiz tamamen ücretsizdir.",
   },
   {
     question: "Sipariş verildikten kaç gün sonra perdeler takılıyor?",
@@ -23,7 +23,7 @@ const faqs = [
   {
     question: "Ödeme seçenekleriniz nelerdir?",
     answer:
-      "Müşterilerimize esneklik sağlamak amacıyla kredi kartına taksit, havale/EFT ve nakit ödeme seçenekleri sunmaktayız.",
+      "Ödemelerinizi IBAN numaramıza peşin (havale/EFT) olarak yapabilirsiniz.",
   },
   {
     question: "Perdelerin temizliği nasıl yapılır?",

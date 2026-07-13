@@ -10,6 +10,7 @@ import { CurtainGuide } from "@/components/sections/CurtainGuide";
 import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { Faq } from "@/components/sections/Faq";
 
 export default function Home() {
   return (
@@ -44,6 +45,7 @@ export default function Home() {
       <CurtainGuide />
       <Services />
       <Testimonials />
+      <Faq />
       <ContactSection />
     </>
   );

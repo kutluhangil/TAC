@@ -3,6 +3,7 @@ import { Fraunces, Figtree } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyContactBar } from "@/components/layout/StickyContactBar";
+import { FloatingContactDesktop } from "@/components/layout/FloatingContactDesktop";
 import { business } from "@/data/business";
 import "./globals.css";
 
@@ -75,6 +76,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <StickyContactBar />
+        <FloatingContactDesktop />
       </body>
     </html>
   );

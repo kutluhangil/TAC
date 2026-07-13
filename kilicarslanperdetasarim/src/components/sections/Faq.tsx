@@ -15,11 +15,7 @@ const faqs = [
     answer:
       "Model ve kumaş stok durumuna göre değişmekle birlikte, siparişiniz onaylandıktan sonra ortalama 3 ila 5 iş günü içerisinde perdelerinizin montajı kusursuz bir şekilde tamamlanır.",
   },
-  {
-    question: "Perdelerin garanti süresi nedir?",
-    answer:
-      "Tüm TAÇ marka perde modellerimiz, mekanizma ve üretim hatalarına karşı 2 yıl garantilidir. Montaj sonrasında da herhangi bir sorunda bize ulaşabilirsiniz.",
-  },
+
   {
     question: "Ödeme seçenekleriniz nelerdir?",
     answer:

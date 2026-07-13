@@ -182,10 +182,7 @@ export function Hero() {
             {/* Trust Badges */}
             <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 text-[13px] sm:text-sm font-medium text-charcoal/80">
               <div className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 text-tac-red" /> Ücretsiz Keşif & Montaj
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 text-tac-red" /> 2 Yıl TAÇ Garantisi
+                <CheckCircle className="h-4 w-4 text-tac-red" /> Ücretsiz Keşif ve Ölçü Alımı
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle className="h-4 w-4 text-tac-red" /> %100 Müşteri Memnuniyeti

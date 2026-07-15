@@ -23,7 +23,7 @@ export function Header() {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
           <Link href="/" className="flex items-center gap-2.5">
             <Image
-              src="/images/brand/tac-logo.png"
+              src="/images/brand/logo.png"
               alt="Logo"
               width={40}
               height={35}

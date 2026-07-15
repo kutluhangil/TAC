@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="linen-texture flex min-h-[100svh] flex-col items-center justify-center px-5 text-center">
       <Image
-        src="/images/brand/tac-logo.png"
+        src="/images/brand/logo.png"
         alt=""
         width={96}
         height={85}

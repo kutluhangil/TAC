@@ -13,7 +13,7 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-3">
               <Image
-                src="/images/brand/tac-logo.png"
+                src="/images/brand/logo.png"
                 alt="Logo"
                 width={48}
                 height={42}

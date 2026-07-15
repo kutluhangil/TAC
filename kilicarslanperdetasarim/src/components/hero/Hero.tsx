@@ -91,7 +91,7 @@ export function Hero() {
         <div className="flex flex-col items-center text-center pt-10 lg:pt-0 mx-auto max-w-xl">
           {/* Logo draws left-to-right like fabric being pulled across a rail. */}
           <motion.div
-            className="relative z-10 w-28 sm:w-32 md:w-40"
+            className="relative z-10 w-64 sm:w-80 md:w-96"
             initial={{ clipPath: "inset(0% 100% 0% 0%)", opacity: 0 }}
             animate={
               shown
@@ -101,7 +101,7 @@ export function Hero() {
             transition={instant ? { duration: 0 } : { duration: 1.2, ease: EASE }}
           >
             <Image
-              src="/images/brand/tac-logo.png"
+              src="/images/brand/hero-logo.png"
               alt="Logo"
               width={800}
               height={704}
@@ -112,18 +112,6 @@ export function Hero() {
 
           <h1 className="relative z-10 mt-8 font-display font-semibold leading-[1.05] text-charcoal">
             <span className="sr-only">Kılıçarslan Perde &amp; Tasarım</span>
-            <StaggeredLine
-              text="KILIÇARSLAN"
-              phase={phase}
-              baseDelay={0.9}
-              className="block text-[clamp(2.5rem,7vw,4.5rem)] tracking-tight"
-            />
-            <StaggeredLine
-              text="PERDE & TASARIM"
-              phase={phase}
-              baseDelay={1.3}
-              className="mt-1 block text-[clamp(1.1rem,3vw,1.75rem)] font-medium tracking-[0.14em] text-tac-red"
-            />
           </h1>
 
           <motion.p

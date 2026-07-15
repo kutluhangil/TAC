@@ -10,7 +10,7 @@ export const contentType = "image/png";
 // Branded share card: linen ground, mark, business name and tagline.
 export default async function OpengraphImage() {
   const logo = await readFile(
-    path.join(process.cwd(), "public/images/brand/tac-logo.png")
+    path.join(process.cwd(), "public/images/brand/logo.png")
   );
   const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
 

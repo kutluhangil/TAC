@@ -49,7 +49,7 @@ const jsonLd = {
   telephone: "+905324675428",
   email: business.email,
   url: business.url,
-  image: `${business.url}/images/brand/tac-logo.png`,
+  image: `${business.url}/images/brand/logo.png`,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Tuzla",

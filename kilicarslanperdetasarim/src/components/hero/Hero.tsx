@@ -14,48 +14,7 @@ const PLAYED_KEY = "kp-hero-played";
 
 type Phase = "initial" | "play" | "done";
 
-/** Splits a line into per-letter spans for the staggered title reveal. */
-function StaggeredLine({
-  text,
-  phase,
-  baseDelay,
-  className,
-}: {
-  text: string;
-  phase: Phase;
-  baseDelay: number;
-  className?: string;
-}) {
-  const letters = Array.from(text);
-  return (
-    <span className={className} aria-hidden="true">
-      {letters.map((letter, i) => (
-        <motion.span
-          key={i}
-          className="inline-block"
-          initial={{ opacity: 0, y: -18 }}
-          animate={
-            phase === "initial"
-              ? { opacity: 0, y: -18 }
-              : { opacity: 1, y: 0 }
-          }
-          transition={
-            phase === "done"
-              ? { duration: 0 }
-              : {
-                  delay: baseDelay + i * 0.03,
-                  type: "spring",
-                  stiffness: 220,
-                  damping: 22,
-                }
-          }
-        >
-          {letter === " " ? " " : letter}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
+
 
 /**
  * Opening scene: the logo draws in like rippling fabric, the business

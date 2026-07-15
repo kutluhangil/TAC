@@ -47,7 +47,7 @@ export default function ProductPage({ params }: PageProps) {
         </Link>
 
         <FadeUp className="mt-6">
-          <p className="eyebrow">TAÇ Perde Modeli</p>
+          <p className="eyebrow">Perde Modeli</p>
           <h1 className="mt-2 font-display text-[clamp(2rem,6vw,3.25rem)] font-semibold text-charcoal">
             {product.name}
           </h1>

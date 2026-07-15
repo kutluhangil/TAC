@@ -3,19 +3,19 @@ import { StaggerChildren } from "@/components/motion/StaggerChildren";
 
 const stats = [
   {
-    value: "1974",
+    value: "M.Ö. 3000",
     label:
-      "Zorlu Ailesi'nin ürünlerini tek marka altında topladığı yıl. Kökleri Denizli Babadağ dokumacılığına dayanan, Türkiye'nin en köklü ev tekstili markası.",
+      "Perdenin bilinen ilk kullanımı Eski Mısır'a dayanır. Hayvan derileri ve keten kumaşlarla başlayan bu serüven, yüzyıllar içinde zarafet sembolüne dönüştü.",
   },
   {
-    value: "1976",
+    value: "16. Yüzyıl",
     label:
-      "TAÇ'ın perde üretimine başladığı yıl; 1984'ten beri tül perde ihracatı yapıyor. Üretim, Avrupa'nın en büyük entegre ev tekstili tesislerinde, Türkiye'de.",
+      "Avrupa'da Rönesans ile birlikte perdeler, sadece ışığı kesmek için değil, pencereleri bir tablo gibi süslemek için ihtişamlı kumaşlarla tasarlanmaya başlandı.",
   },
   {
-    value: "1500+",
+    value: "Modern Çağ",
     label:
-      "Türkiye genelinde satış noktası; yüzlerce mağaza ve 30'dan fazla ülkede varlık. Türkiye ev tekstilinin lider markası.",
+      "Geleneksel dokuma tezgâhlarından günümüzün akıllı mekanizmalarına uzanan bu köklü miras, evlerimize zarafet ve fonksiyonellik katmaya devam ediyor.",
   },
 ];
 
@@ -23,9 +23,9 @@ export function WhyTac() {
   return (
     <section id="neden-tac" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
       <CurtainReveal>
-        <p className="eyebrow">Neden TAÇ?</p>
+        <p className="eyebrow">Perdenin Tarihçesi</p>
         <h2 className="mt-3 max-w-xl font-display text-[clamp(1.75rem,5vw,2.75rem)] font-semibold text-charcoal">
-          Türkiye&apos;de dokunur, dünyaya satılır
+          Tarihten Günümüze Zarafet
         </h2>
       </CurtainReveal>
 
@@ -45,7 +45,7 @@ export function WhyTac() {
       <CurtainReveal className="mt-12">
         <figure className="rounded-2xl bg-linen-warm p-8 md:p-10">
           <blockquote className="max-w-2xl font-display text-2xl font-medium leading-snug text-charcoal md:text-3xl">
-            &ldquo;Marka TAÇ&apos;ın, ölçü ve işçilik bizim. Yerinde ölçü
+            &ldquo;Kaliteli kumaş, kusursuz işçilik. Yerinde ölçü
             alıyor, milimetrik dikiyor, temiz montajla teslim ediyoruz.&rdquo;
           </blockquote>
           <figcaption className="eyebrow mt-5">

@@ -1,7 +1,7 @@
 export const business = {
   name: "Kılıçarslan Perde & Tasarım",
   owner: "Ufuk Kılıçarslan",
-  brand: "TAÇ",
+  brand: "Kılıçarslan Perde",
   phone: "0532 467 54 28",
   phoneHref: "tel:+905324675428",
   whatsappHref: "https://wa.me/905324675428",

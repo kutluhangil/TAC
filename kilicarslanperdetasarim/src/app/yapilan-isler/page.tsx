@@ -33,7 +33,7 @@ export default function YapilanIslerPage() {
               beforeImage="/images/gallery/gallery-43.jpeg"
               afterImage="/images/gallery/gallery-43.jpeg"
               beforeLabel="Eski Hali (Örnek)"
-              afterLabel="TAÇ Perde ile Sonrası"
+              afterLabel="Yeni Perde ile Sonrası"
             />
           </div>
 

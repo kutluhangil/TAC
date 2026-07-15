@@ -24,7 +24,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2.5">
             <Image
               src="/images/brand/tac-logo.png"
-              alt="TAÇ"
+              alt="Logo"
               width={40}
               height={35}
             />

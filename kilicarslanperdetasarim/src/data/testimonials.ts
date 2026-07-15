@@ -213,7 +213,7 @@ export const testimonials: Testimonial[] = [
     district: "Tepeören",
     model: "Stor Perde",
     rating: 5,
-    text: "hizli teslimat guler yuzlu hizmet tesekkurler taç perde",
+    text: "hizli teslimat guler yuzlu hizmet tesekkurler",
     
   },
   {
@@ -261,7 +261,7 @@ export const testimonials: Testimonial[] = [
     district: "Yayla",
     model: "Zebra Perde",
     rating: 5,
-    text: "yillardir taç kullanirim yine yaniltmadi.",
+    text: "yillardir kullanirim yine yaniltmadi.",
     
   },
   {

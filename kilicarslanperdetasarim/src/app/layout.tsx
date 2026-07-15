@@ -23,15 +23,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(business.url),
   title: {
     default:
-      "Kılıçarslan Perde & Tasarım | TAÇ Perde Modelleri — Tuzla / İstanbul",
+      "Kılıçarslan Perde & Tasarım | Perde Modelleri — Tuzla / İstanbul",
     template: "%s | Kılıçarslan Perde & Tasarım",
   },
   description:
-    "TAÇ perde modelleri: zebra, stor, plise, tül, fon, ahşap ve metal jaluzi, screen ofis perdesi. Tuzla, Pendik, Kartal ve Gebze'de yerinde ölçü, milimetrik dikim ve profesyonel montaj.",
+    "Perde modelleri: zebra, stor, plise, tül, fon, ahşap ve metal jaluzi, screen ofis perdesi. Tuzla, Pendik, Kartal ve Gebze'de yerinde ölçü, milimetrik dikim ve profesyonel montaj.",
   openGraph: {
     title: "Kılıçarslan Perde & Tasarım",
     description:
-      "TAÇ perde modelleri — yerinde ölçü, montaj. Tuzla / İstanbul.",
+      "Perde modelleri — yerinde ölçü, montaj. Tuzla / İstanbul.",
     locale: "tr_TR",
     type: "website",
   },

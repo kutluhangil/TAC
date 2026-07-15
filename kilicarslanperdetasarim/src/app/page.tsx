@@ -26,7 +26,7 @@ export default function Home() {
             <div>
               <p className="eyebrow">Modeller</p>
               <h2 className="mt-3 font-display text-[clamp(1.75rem,5vw,2.75rem)] font-semibold text-charcoal">
-                TAÇ perde modelleri
+                Perde modelleri
               </h2>
             </div>
             <Link

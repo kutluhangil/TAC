@@ -3,7 +3,7 @@ import type { ColorOption } from "@/data/products";
 import { business } from "@/data/business";
 
 /**
- * TAÇ color catalog for a model. Codes arrive later; until then the section
+ * Color catalog for a model. Codes arrive later; until then the section
  * degrades to an elegant "call us" state instead of an empty grid.
  */
 export function ColorSwatches({ colors }: { colors: ColorOption[] }) {
@@ -15,7 +15,7 @@ export function ColorSwatches({ colors }: { colors: ColorOption[] }) {
           Renk kartelası için arayın, kataloğu yerinde gösterelim.
         </p>
         <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">
-          TAÇ kumaş kartelasını evinize getiriyor, renkleri kendi ışığınızda
+          Kumaş kartelasını evinize getiriyor, renkleri kendi ışığınızda
           birlikte seçiyoruz.
         </p>
         <a

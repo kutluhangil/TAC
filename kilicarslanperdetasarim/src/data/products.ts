@@ -1,5 +1,5 @@
 export interface ColorOption {
-  code: string; // TAÇ product code — to be filled when the catalog arrives
+  code: string; // product code — to be filled when the catalog arrives
   name: string;
   hex?: string;
 }
@@ -13,7 +13,7 @@ export interface Product {
   bestFor: string[];
   lifespan: string;
   care: string;
-  colors: ColorOption[]; // empty until TAÇ color codes are provided
+  colors: ColorOption[]; // empty until color codes are provided
   images: string[];
 }
 
@@ -222,9 +222,9 @@ export const products: Product[] = [
     slug: "tul-perde",
     name: "Tül Perde",
     shortDesc:
-      "Gün ışığını süzer, mahremiyeti korur; TAÇ tüllerinin muntazam pile duruşu.",
+      "Gün ışığını süzer, mahremiyeti korur; tüllerinin muntazam pile duruşu.",
     longDesc: [
-      "Tül perde, gün ışığını süzerek içeri alırken dışarıdan bakışı engelleyen, evin en yumuşak katmanıdır. Bir tülün kalitesi pilesinin duruşundan belli olur: TAÇ tülleri muntazam pile duruşu ve dayanıklılığıyla bilinir.",
+      "Tül perde, gün ışığını süzerek içeri alırken dışarıdan bakışı engelleyen, evin en yumuşak katmanıdır. Bir tülün kalitesi pilesinin duruşundan belli olur: tüllerimiz muntazam pile duruşu ve dayanıklılığıyla bilinir.",
       "Ütü gerektirmeyen zemin seçenekleri sayesinde yıkandıktan sonra asıldığı gibi formunu alır. Düz, işlemeli, keten görünümlü ve simli dokular arasından evinizin stiline uygun tül birlikte seçilir.",
       "Pile katsayısını pencerenize ve kumaşa göre hesaplıyor, milimetrik dikişle tavandan zemine kusursuz bir duruş teslim ediyoruz.",
     ],

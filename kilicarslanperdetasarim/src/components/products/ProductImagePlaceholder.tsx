@@ -2,7 +2,7 @@ import Image from "next/image";
 
 /**
  * Branded stand-in shown until a product photo is provided: linen ground,
- * a brass hairline frame and the TAÇ mark at low opacity. Never a gray
+ * a brass hairline frame and the mark at low opacity. Never a gray
  * "image not found" box.
  */
 export function ProductImagePlaceholder({ name }: { name: string }) {

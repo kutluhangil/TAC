@@ -58,7 +58,7 @@ function StaggeredLine({
 }
 
 /**
- * Opening scene: the TAÇ logo draws in like rippling fabric, the business
+ * Opening scene: the logo draws in like rippling fabric, the business
  * name staggers in letter by letter, then the tagline settles.
  * Split layout with HeroCardStack on the right.
  */
@@ -102,7 +102,7 @@ export function Hero() {
           >
             <Image
               src="/images/brand/tac-logo.png"
-              alt="TAÇ logosu"
+              alt="Logo"
               width={800}
               height={704}
               priority

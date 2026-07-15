@@ -3,11 +3,11 @@ import path from "node:path";
 import { ImageResponse } from "next/og";
 import { business } from "@/data/business";
 
-export const alt = "Kılıçarslan Perde & Tasarım — TAÇ Perde Modelleri";
+export const alt = "Kılıçarslan Perde & Tasarım — Perde Modelleri";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Branded share card: linen ground, TAÇ mark, business name and tagline.
+// Branded share card: linen ground, mark, business name and tagline.
 export default async function OpengraphImage() {
   const logo = await readFile(
     path.join(process.cwd(), "public/images/brand/tac-logo.png")

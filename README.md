@@ -31,12 +31,12 @@ A neighbourhood curtain workshop gets most of its customers from a phone: someon
 | **Ten models** | Roller (stor), pleated (plise), wooden and metal venetian blinds, rustic, zebra, decorative rails, sheer (tül), drapes (fon) and office screen blinds, each with its own page and photo gallery. |
 | **Finished work** | A gallery of completed rooms with a full-screen lightbox. |
 | **Buying guide** | Which curtain for which room, how long curtains last, how to care for them, with links to the models and services. |
-| **Services** | Washing and alterations, rail and rod installation, and home measurement. |
+| **Services** | Washing and alterations, and curtain rail installation. |
 | **Testimonials** | Short notes from customers. |
 | **Contact** | A sticky mobile bar and a floating desktop button for WhatsApp and phone. |
 | **Motion** | Framer Motion reveals and transitions tuned for phones. |
 | **SEO** | Metadata, a generated Open Graph image, `sitemap.ts` and `robots.ts`. |
-| **Optimised images** | 180+ images served as WebP through `next/image`. |
+| **Optimised images** | 180+ product, gallery and brand images served through `next/image`. |
 
 <img src="docs/media/divider.svg" width="100%" alt="">
 
@@ -64,7 +64,7 @@ flowchart LR
 
 ## Türkçe özet
 
-**Kılıçarslan Perde & Tasarım** için hazırlanmış, mobil öncelikli ve premium görünümlü bir vitrin sitesi. Stor, plise, ahşap ve metal jaluzi, rustik, zebra, dekoratif ray, tül, fon ve ofis screen perde olmak üzere on model kendi sayfası ve galerisiyle; tamamlanan işler tam ekran galeride; hangi odaya hangi perde, ömür ve bakım soruları rehberde. Yıkama-tadilat, korniş montajı ve ölçü hizmetleri anlatılıyor. Telefonda yapışkan bir çubuk, masaüstünde yüzen bir düğme WhatsApp ve aramayı her zaman bir dokunuş uzakta tutuyor.
+**Kılıçarslan Perde & Tasarım** için hazırlanmış, mobil öncelikli ve premium görünümlü bir vitrin sitesi. Stor, plise, ahşap ve metal jaluzi, rustik, zebra, dekoratif ray, tül, fon ve ofis screen perde olmak üzere on model kendi sayfası ve galerisiyle; tamamlanan işler tam ekran galeride; hangi odaya hangi perde, ömür ve bakım soruları rehberde. Yıkama-tadilat ve korniş montajı hizmetleri anlatılıyor. Telefonda yapışkan bir çubuk, masaüstünde yüzen bir düğme WhatsApp ve aramayı her zaman bir dokunuş uzakta tutuyor.
 
 <img src="docs/media/divider.svg" width="100%" alt="">
 
